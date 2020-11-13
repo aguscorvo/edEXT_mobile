@@ -1,0 +1,10 @@
+/target/
+
+*.o
+.class
+/bin
+*.log
+*.settings
+.classpath
+.project
+backend/bin/
