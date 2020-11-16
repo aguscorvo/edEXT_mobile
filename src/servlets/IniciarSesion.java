@@ -44,8 +44,13 @@ public class IniciarSesion extends HttpServlet {
 		
 		try {
 			usuarioLogueado= iniciarSesion(nickOEmail, contraseña);
-			loginExitoso=true;
-			request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
+			if (usuarioLogueado.getTipo().equals("estudiante")){
+				loginExitoso=true;
+				request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");
+			}else {
+				request.setAttribute("mensaje", "Solo pueden ingresar estudiantes a la versión mobile de edEXT.");
+				loginExitoso=false;	
+			}
 		} catch (Exception e) {			
 				request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 				loginExitoso=false;			
