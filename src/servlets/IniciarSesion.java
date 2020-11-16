@@ -48,7 +48,7 @@ public class IniciarSesion extends HttpServlet {
 				loginExitoso=true;
 				request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");
 			}else {
-				request.setAttribute("mensaje", "Solo pueden ingresar estudiantes a la versión mobile de edEXT.");
+				request.setAttribute("mensaje", "ERROR: intenta ingresar como docente. Solo pueden ingresar estudiantes a la versión mobile de edEXT.");
 				loginExitoso=false;	
 			}
 		} catch (Exception e) {			
