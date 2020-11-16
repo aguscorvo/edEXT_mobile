@@ -10,13 +10,21 @@
 <title>Cerrar sesión</title>
 </head>
 <body>
-<%HttpSession s = request.getSession(false);
+<%
+HttpSession s = request.getSession(false);
+
+if (s.getAttribute("recordarDatos") != null){
+	String recordar = s.getAttribute("recordarDatos").toString();	
+	if (recordar.equals("false")){
+		s.removeAttribute("nick");
+		s.removeAttribute("password");
+	}
+	
+}
 s.removeAttribute("tipoUsuarioLogueado");
-s.removeAttribute("nick");
 s.removeAttribute("nombre");
 s.removeAttribute("apellido");
 s.removeAttribute("fechaNac");
-s.removeAttribute("password");
 
 s.getMaxInactiveInterval();
 %>

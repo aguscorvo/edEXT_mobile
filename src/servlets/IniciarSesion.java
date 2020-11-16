@@ -40,6 +40,8 @@ public class IniciarSesion extends HttpServlet {
 		DtUsuarioLogueado usuarioLogueado=null;
 		Boolean loginExitoso=false;
 		
+		String checkboxRecordar = request.getParameter("checkboxRecordar");
+		
 		try {
 			usuarioLogueado= iniciarSesion(nickOEmail, contraseña);
 			loginExitoso=true;
@@ -56,6 +58,14 @@ public class IniciarSesion extends HttpServlet {
 				session.setAttribute("tipoUsuarioLogueado", "estudiante");
 			else if(usuarioLogueado.getTipo().equals("docente"))
 				session.setAttribute("tipoUsuarioLogueado", "docente");
+			
+			if (checkboxRecordar!=null) {
+				session.setAttribute("recordarDatos", "true");				
+
+			}
+			else {
+				session.setAttribute("recordarDatos", "false");
+			}
 			
 			session.setAttribute("nick", usuarioLogueado.getNick());
 			session.setAttribute("nombre", usuarioLogueado.getNombre());
