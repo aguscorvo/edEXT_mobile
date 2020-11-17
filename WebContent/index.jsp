@@ -39,10 +39,12 @@ if (s.getAttribute("recordarDatos") != null){
     <input  type="password" name="password" class="form-control" id="exampleInputPassword1" value="<%=contrasenia %>" placeholder="Password" >
   </div> 
   
+  <div class="form-group">
   <div class="form-check form-check-inline">
 		<input class="form-check-input" type="checkbox" id="checkboxRecordar" name="checkboxRecordar" value="recordar">
 		<label style="color: white" class="form-check-label" for="checkboxRecordar">Recordarme</label>
 	</div>
+  </div>
   
   <br>
   
